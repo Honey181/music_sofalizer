@@ -27,7 +27,7 @@ def get_max_volume(input_file):
         '-f', 'null',
         '-'
     ]
-    result = subprocess.run(command, capture_output=True, text=True, errors='ignore')
+    result = subprocess.run(command, capture_output=True, text=True)
     max_volume_matches = re.search(r"max_volume: ([\-\d\.]+) dB", result.stderr)
     if max_volume_matches:
         return float(max_volume_matches.group(1))
